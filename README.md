@@ -1,4 +1,4 @@
-# Building RAGs with LangChain
+# Building RAGs with LangChain [Work in Progress]
 
 ## Content
 
