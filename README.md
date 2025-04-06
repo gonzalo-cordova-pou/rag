@@ -1,4 +1,4 @@
-# Building RAGs with LangChain [Work in Progress]
+# Building RAGs and Agents with LangChain & LangGraph [Work in Progress]
 
 ## Content
 
