@@ -13,6 +13,7 @@
 - [Vectore Stores](#vectore-stores)
     - [Local In-Memory](#local-in-memory)
     - [Qdrant Cloud](#qdrant-cloud)
+- [Agents](#agents)
 - [References](#references)
 
 
@@ -104,7 +105,7 @@ Information is split into chunks and stored in a vector store. This allows for e
 **Retrievers**
 
 Retrievers (`VectorStoreRetriever` class) are a wrapper around vector stores that allow for easy querying. Retrievers with LangChain have these options:
-- `search_type`: Type of search to perform. Options are “similarity” (default), “mmr”, or “similarity_score_threshold”
+- `search_type`: Type of search to perform. Options are "similarity" (default), "mmr", or "similarity_score_threshold"
 - `search_kwargs`: Additional arguments to pass to the search function
     - `k`: Amount of documents to return (default 4)
     - `score_threshold`: Minimum relevance threshold (default 0)
@@ -194,10 +195,29 @@ found_docs = qdrant.max_marginal_relevance_search(query, k=2, fetch_k=10)
 **Qdrant as a retriever**
 
 ```python
-retriever = qdrant.as_retriever(search_type="mmr") # “similarity” (default), “mmr”, or “similarity_score_threshold”
+retriever = qdrant.as_retriever(search_type="mmr") # "similarity" (default), "mmr", or "similarity_score_threshold"
 query = "What did the president say about Ketanji Brown Jackson"
 retriever.invoke(query)[0]
 ```
+
+### Agents
+
+- **Creating an AI Agent with LangGraph** ([ai_agent.ipynb](./notebooks/ai_agent.ipynb))
+    - This notebook demonstrates how to build a modular AI agent using LangGraph and LangChain.
+    - Content:
+        - Setting up the environment
+        - Defining the agent state
+        - Creating a workflow with three main nodes:
+            - Parse Request: Understands user input
+            - Think: Plans how to solve tasks
+            - Execute: Provides solutions
+        - Customizing agent behavior
+        - Comparing different agent configurations
+
+The agent implementation provides a structured workflow for processing user requests and can be customized in several ways:
+- Using different language models
+- Adjusting temperature for response style
+- Creating specialized agents for different purposes
 
 ### References
 
